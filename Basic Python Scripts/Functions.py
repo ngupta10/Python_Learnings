@@ -1,73 +1,37 @@
-"""
+# 2. Write a recursive function to compute x raised to the power of n.
 
-Single parameter and zero parameter functions:
-1.define a function that takes no parameters and prints a string
-2.create a variable and assign it the value 5
-3.create a function that takes a single parameter and prints it
-4.call the function you created in step 1
-5.call the function you created in step 3 with the variable you made in step 2 as its input
+def recursive_power(x, y):
+    if y ==1:
+        return x
+    else:
+        return x * recursive_power(x, y-1)
 
-"""
+try:
+    base = int(raw_input("Please enter the base number : "))
+    pow_base = int(raw_input("Please enter the power to which %i to be raised : "%base))
+    print ("The result is : %i"%(recursive_power(base, pow_base)))
+except ValueError:
+    print ("You entered Invalid value")
 
-def ex():
-    print("Hello World")
 
-ex()
+#Sort the list using lambda function mylist = [["john", 1, "a"], ["larry", 0, "b"]].
+#  Sort the list by second item 1 and 0.
 
-var1 = 5
+mylist = [["john", 1, "a"], ["larry", 0, "b"]]
 
-def ex1(a):
-    print(a)
+def getKey(item):
+    return item[1]
 
-ex1(var1)
+#print (sorted(mylist, key = getKey))
 
-""" 
+print (sorted(mylist, key=lambda mylist:mylist[1]))
 
-multiple parameter functions: 
-1.create 3 variables and assign integer values to them 
-2.define a function that prints the difference of 2 parameters 
-3.define a function that prints the product of the 3 variables 
-4.call the function you made in step 2 using 2 of the variables you made for step 1 
-5.call the function you made in step 3 using the 3 variables you created for step 1 
 
-"""
+#Sort the list using operator.itemgetter function mylist = [["john", 1, "a"], ["larry", 0, "b"]].
+# Sort the list by second item 1 and 0.
 
-va1 = 1
-va2 = 2
-va3 = 3
+import operator
 
-def sub(a,b):
-    print(a-b)
-def prod(a,b):
-    print(a*b)
-sub(va2,va1)
-prod(va3,va2)
+mylist = [["john", 1, "a"], ["larry", 0, "b"]]
 
-""" 
-
-Calling previously defined functions within functions: 
-1.create 3 variables and assign float values to them 
-2.create a function that returns the quotient of 2 parameters 
-3.create a function that returns the quotient of what is returned by the function from the second step 
-and a third  parameter 
-4.call the function you made in step 2 using 2 of the variables you created in step 1.  Assign this to a variable. 
-5.print the variable you made in step 4 
-6.print a call of the function you made in step 3 using the 3 variables you created in step 1 
-
-"""
-
-v1 = 1.2
-v2 = 2.6
-v3 = 3.9
-
-def quot(a,b):
-    return a / b
-
-def quot1(a,b,c):
-    return quot(a,b) / c
-
-vare1 = quot(v2,v1)
-
-print(vare1)
-
-print(quot1(v2,v1,v3))
+print(sorted(mylist, key=operator.itemgetter(1)))
